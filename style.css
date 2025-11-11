@@ -27,7 +27,7 @@ body{
   box-sizing: border-box;
   border: 6px solid #4F8AF8;
   border-radius: 30px;
-  background: var(--day-background-color);
+  background: #FFFFFF;
 }
 
 .phone__status{
@@ -38,6 +38,7 @@ body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: transparent;
 }
 
 .phone__status__container{
@@ -51,6 +52,7 @@ body{
   padding: 0 15px 0 30px;
   margin: 0;
   box-sizing: border-box;
+  background: transparent;
 }
 
 .phone__status__time{
@@ -94,6 +96,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: transparent;
 }
 
 .screen__icons{
@@ -167,10 +170,11 @@ body{
   margin-bottom: 15px;
   width: 100%;
   box-sizing: border-box;
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 400;
   color: var(--font-color);
   border: none;
+  background: transparent;
 }
 
 .display-screen__result{
@@ -190,6 +194,10 @@ body{
   border-bottom-right-radius: 25px;
   background: var(--day-keypad-backgound);
   box-sizing: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .buttons-grid-container{
@@ -200,6 +208,7 @@ body{
     grid-template-columns: repeat(4, 60px);
     justify-content: space-between;
     color: var(--font-color);
+    background: transparent;
 }
 
 .button{
@@ -212,6 +221,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--font-color);
 }
 
 .operation{
@@ -225,4 +235,15 @@ body{
 .equal{
     background: #4E8AF8;
     color: #FFFFFF;
+}
+
+.bottom-bar{
+  border: 1px solid #000000;
+  background: #000000;
+  width: 40%;
+  height: 5px;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 10px;
+  /* margin: 20px; */
 }
