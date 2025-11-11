@@ -32,11 +32,10 @@ button.forEach(elements => {
 
 
         const evaluate = (equation) => {
-
             const operator = Array.from(operators).map(symbols => symbols.textContent);
             const otherOperators = operator.slice(0,3);
             const arithmeticOperators = operator.slice(3).join("");
-            console.log(arithmeticOperators);
+
             const values = [];
             const symbols = [];
             let num = "";
@@ -53,18 +52,17 @@ button.forEach(elements => {
                 }
             }
             values.push(Number(num));
+
+            console.log(otherOperators);
+
             for (let symbolIndex = 0; symbolIndex < symbols.length; symbolIndex ++){
                 if (symbols[symbolIndex] === arithmeticOperators[0]){
-                    console.log(arithmeticOperators[0]);
-                    console.log(symbolIndex);
                     values[symbolIndex] = values[symbolIndex] / values[symbolIndex + 1];
                     total = values[symbolIndex];
                     values.splice(symbolIndex + 1, 1);
                     symbols.splice(symbolIndex,1);
                 }
                 if (symbols[symbolIndex] === arithmeticOperators[1]){
-                    console.log(arithmeticOperators[1]);
-                    console.log(symbolIndex);
                     values[symbolIndex] = values[symbolIndex] * values[symbolIndex + 1];
                     total = values[symbolIndex];
                     values.splice(symbolIndex + 1, 1);
@@ -83,9 +81,6 @@ button.forEach(elements => {
                     total = result;
                 }
             }
-            console.log(`op: ${symbols}`);
-            console.log(`num: ${num}`);
-            console.log(`value: ${values}`);
             
 
             return total;
@@ -108,7 +103,7 @@ button.forEach(elements => {
                 }
         } 
 
-        const resetDisplay = (reset, value) =>{
+        const resetDisplay = (reset, value="") =>{
             if (display.style.fontSize === "2rem" && result.style.fontSize === "4rem"){
                 display.value = reset;
                 result.textContent = reset;
@@ -126,7 +121,9 @@ button.forEach(elements => {
 
         switch(event.target.textContent){
             case "AC":
+                resetDisplay(0);
                 display.value = "";
+                result.textContent = 0;
                 break;
             case "%":
                 display.value = display.value === "" ? "" : result.textContent/100;
@@ -149,7 +146,6 @@ button.forEach(elements => {
                 }
                 else{
                     result.textContent = evaluate(display.value);
-                    console.log(`Result: ${result.textContent}`);
                     display.style.fontSize = "2rem";
                     result.style.fontSize = "4rem";
                 }
